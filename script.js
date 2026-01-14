@@ -50,24 +50,26 @@ sendWhatsAppBtn.addEventListener('click', function(e) {
 		clientName: document.getElementById('clientName').value,
 		clientWhatsApp: document.getElementById('clientWhatsApp').value,
 		commercialTheme: document.getElementById('commercialTheme').value,
-		eventDate: document.getElementById('eventDate').value,
+		eventStart: document.getElementById('eventStart')?.value || '',
+		eventEnd: document.getElementById('eventEnd')?.value || '',
 		projectColors: document.getElementById('projectColors').value,
 		announcerText: document.getElementById('announcerText').value,
 		announcerName: document.getElementById('announcerName').value,
 		commercialModel: document.getElementById('commercialModel')?.selectedOptions[0]?.textContent || ''
 	};
     
-	const message = `*Novo Agendamento de Comercial - Produtora Mídias Brasil*%0A%0A` +
-		`*Empresa:* ${formData.companyName}%0A` +
-		`*Cliente:* ${formData.clientName}%0A` +
-		`*WhatsApp:* ${formData.clientWhatsApp}%0A` +
-		`*Tema:* ${formData.commercialTheme}%0A` +
-		`*Modelo:* ${formData.commercialModel}%0A` +
-		`*Data do Evento:* ${formData.eventDate}%0A` +
-		`*Cores:* ${formData.projectColors}%0A` +
-		`*Texto do Locutor:* ${formData.announcerText}%0A` +
-		`*Locutor:* ${formData.announcerName}%0A%0A` +
-		`*Observação:* Tempo de entrega 12-24h (até 3 dias para VFX/CGI/FOOH)`;
+	const message = `*NOVA AGENDA & ORÇAMENTOS*\n\n` +
+		`*Empresa:* ${formData.companyName}\n` +
+		`*Cliente:* ${formData.clientName}\n` +
+		`*WhatsApp:* ${formData.clientWhatsApp}\n` +
+		`*Tema:* ${formData.commercialTheme}\n` +
+		`*Modelo:* ${formData.commercialModel}\n` +
+		`*Data Inicial:* ${formData.eventStart}\n` +
+		`*Data Término:* ${formData.eventEnd}\n` +
+		`*Cores:* ${formData.projectColors}\n\n` +
+		`*Texto do Locutor:* ${formData.announcerText}\n\n` +
+		`*Locutor:* ${formData.announcerName}\n\n` +
+		`*Observação:* Te enviaremos a data de entrega e valores via WhatsApp`;
     
 	const phoneNumber = '5562991620784';
 	const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -100,6 +102,28 @@ document.querySelectorAll('#announcerList audio').forEach(a => {
 	a.addEventListener('click', function(e) { e.stopPropagation(); });
 });
 
-// Min date = today
-const eventDateInput = document.getElementById('eventDate');
-eventDateInput.min = new Date().toISOString().split('T')[0];
+// Min date = today and ensure end >= start
+const eventStartInput = document.getElementById('eventStart');
+const eventEndInput = document.getElementById('eventEnd');
+const todayISO = new Date().toISOString().split('T')[0];
+if (eventStartInput) {
+	eventStartInput.min = todayISO;
+}
+if (eventEndInput) {
+	eventEndInput.min = todayISO;
+}
+
+// when start changes, set min for end
+if (eventStartInput && eventEndInput) {
+	eventStartInput.addEventListener('change', function() {
+		const start = this.value;
+		if (start) {
+			eventEndInput.min = start;
+			if (eventEndInput.value && eventEndInput.value < start) {
+				eventEndInput.value = start;
+			}
+		} else {
+			eventEndInput.min = todayISO;
+		}
+	});
+}
