@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+	font-family: 'Inter', sans-serif;
+}
+
+.gradient-bg {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.glass-effect {
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hover-scale {
+	transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+	transform: scale(1.05);
+}
+
+.audio-player {
+	transition: all 0.3s ease;
+}
+
+.audio-player:hover {
+	background-color: rgba(102, 126, 234, 0.1);
+}
+
+/* Ensure native audio controls accept pointer events and sit above backgrounds */
+.audio-player audio {
+	position: relative;
+	z-index: 2;
+	pointer-events: auto;
+	width: 100%;
+}
+
+.form-input {
+	transition: all 0.3s ease;
+}
+
+.form-input:focus {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.whatsapp-btn {
+	background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+	color: #ffffff !important;
+	border: none !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	box-shadow: 0 8px 20px rgba(18, 140, 126, 0.18);
+}
+
+.whatsapp-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Ensure icon and text are visible when other utilities override color */
+.whatsapp-btn i, .whatsapp-btn span {
+	color: #ffffff !important;
+}
+
+/* Disabled state (if ever used) */
+.whatsapp-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.time-indicator {
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.loader {
+	border: 3px solid #f3f3f3;
+	border-top: 3px solid #667eea;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

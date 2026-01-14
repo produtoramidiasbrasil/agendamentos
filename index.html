@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Comerciais - Produtora Mídias Brasil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-lg">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-microphone-alt text-3xl"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold">Produtora Mídias Brasil</h1>
+                </div>
+                <div class="hidden md:block">
+                    <p class="text-sm opacity-90">Agendamento de Comerciais</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Form Section -->
+            <div class="glass-effect rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-calendar-alt mr-3 text-purple-600"></i>
+                    Agende seu Comercial
+                </h2>
+                
+                <form id="commercialForm" class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-building mr-2 text-purple-600"></i>Nome da Empresa
+                        </label>
+                        <input type="text" id="companyName" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Empresa ABC Ltda">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-user mr-2 text-purple-600"></i>Nome do Cliente
+                        </label>
+                        <input type="text" id="clientName" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: João Silva">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fab fa-whatsapp mr-2 text-green-600"></i>WhatsApp do Cliente
+                        </label>
+                        <input type="tel" id="clientWhatsApp" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-lightbulb mr-2 text-purple-600"></i>Tema do Comercial
+                        </label>
+                        <input type="text" id="commercialTheme" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Promoção de Verão">
+                    </div>
+
+                    <!-- Catálogo de modelos (imagem) -->
+                    <div>
+                        <img src="catalogo/catalogo.png" alt="Catálogo de Modelos" class="w-full rounded-lg shadow-md my-4">
+                    </div>
+
+                    <!-- Select: Modelo de Comercial -->
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-th-list mr-2 text-purple-600"></i>Modelo de Comercial
+                        </label>
+                        <select id="commercialModel" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            <option value="">Selecione um modelo</option>
+                            <option value="vt_produtos">VT Produtos</option>
+                            <option value="vt_divulgacao">VT Divulgação</option>
+                            <option value="vfx_advanced">VFX Advanced</option>
+                            <option value="cgi_fooh">CGI FOOH</option>
+                            <option value="pro_c4d">PRO C4D</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-calendar mr-2 text-purple-600"></i>Data do Evento
+                        </label>
+                        <input type="date" id="eventDate" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-palette mr-2 text-purple-600"></i>Cores do Projeto
+                        </label>
+                        <input type="text" id="projectColors" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Azul, Branco e Dourado">
+                    </div>
+
+                    <!-- Logomarca removed per request -->
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-microphone mr-2 text-purple-600"></i>Texto do locutor
+                        </label>
+                        <textarea id="announcerText" rows="4" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Digite o texto do locutor aqui..."></textarea>
+                        <div class="mt-2 flex items-center justify-between">
+                            <div class="time-indicator text-sm text-gray-600">
+                                <i class="fas fa-clock mr-1"></i>
+                                Tempo estimado: <span id="speechTime" class="font-semibold text-purple-600">0 segundos</span>
+                            </div>
+                            <p class="text-xs text-gray-500 italic">*Tempo médio, não é um tempo exato</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-user-tie mr-2 text-purple-600"></i>Nome do locutor
+                        </label>
+                        <input type="text" id="announcerName" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Carlos Alberto">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Announcer Selection Section -->
+            <div class="glass-effect rounded-2xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-users mr-3 text-purple-600"></i>
+                    Escolha o Locutor
+                </h2>
+                
+                <div class="space-y-4 max-h-96 overflow-y-auto pr-2" id="announcerList">
+                    <div class="audio-player bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Luciano Vaz</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/luciano_vaz.mp3.wav" type="audio/wav">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Carlos Goiano</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/carlos_goiano.mp3.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Lucas Costa</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/lucas_costa.mp3.wav" type="audio/wav">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Camargo Varejão</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/camargo_varejao.mp3.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player bg-gray-50 p-S4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Genildo Fernandes</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/genildo_fernandes.mp3.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="audio-player bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-2">Flávio</h3>
+                        <audio controls class="w-full" preload="metadata">
+                            <source src="audios/flavio.mp3.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Observation -->
+                <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                    <p class="text-sm text-gray-700">
+                        <i class="fas fa-info-circle mr-2 text-yellow-600"></i>
+                        <strong>Observação:</strong> Tempo de entrega de 12 horas a 24 horas, variando modelo do projeto. Projetos em VFX, CGI e FOOH podem ser solicitados até 3 dias para entrega.
+                    </p>
+                    <p class="text-sm text-gray-700 mt-2">
+                        <i class="fas fa-dollar-sign mr-2 text-yellow-600"></i>
+                        O valor final será encaminhado pelo WhatsApp, de acordo com o tempo de produção e modelo do comercial.
+                    </p>
+                </div>
+
+                <!-- WhatsApp Button -->
+                <button id="sendWhatsApp" type="button" class="whatsapp-btn w-full mt-6 text-white font-semibold py-4 px-6 rounded-lg flex items-center justify-center space-x-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>Enviar Resumo via WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-6 px-4 mt-12">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-sm opacity-90">© 2025 Produtora Mídias Brasil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
