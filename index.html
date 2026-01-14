@@ -31,7 +31,7 @@
             <div class="glass-effect rounded-2xl p-6 md:p-8">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
                     <i class="fas fa-calendar-alt mr-3 text-purple-600"></i>
-                    Agende seu Comercial
+                    Agende e Orçamentos
                 </h2>
                 
                 <form id="commercialForm" class="space-y-6">
@@ -71,7 +71,7 @@
                     <!-- Select: Modelo de Comercial -->
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">
-                            <i class="fas fa-th-list mr-2 text-purple-600"></i>Modelo de Comercial
+                            <i class="fas fa-th-list mr-2 text-purple-600"></i>Modelo do Comercial
                         </label>
                         <select id="commercialModel" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
                             <option value="">Selecione um modelo</option>
@@ -85,7 +85,14 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">
-                            <i class="fas fa-calendar mr-2 text-purple-600"></i>Data do Evento
+                            <i class="fas fa-calendar mr-2 text-purple-600"></i>Data Inicial do Evento
+                        </label>
+                        <input type="date" id="eventDate" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">
+                            <i class="fas fa-calendar mr-2 text-purple-600"></i>Data Final do Evento
                         </label>
                         <input type="date" id="eventDate" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
                     </div>
@@ -101,7 +108,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">
-                            <i class="fas fa-microphone mr-2 text-purple-600"></i>Texto do locutor
+                            <i class="fas fa-microphone mr-2 text-purple-600"></i>Texto do Locutor
                         </label>
                         <textarea id="announcerText" rows="4" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Digite o texto do locutor aqui..."></textarea>
                         <div class="mt-2 flex items-center justify-between">
@@ -109,13 +116,13 @@
                                 <i class="fas fa-clock mr-1"></i>
                                 Tempo estimado: <span id="speechTime" class="font-semibold text-purple-600">0 segundos</span>
                             </div>
-                            <p class="text-xs text-gray-500 italic">*Tempo médio, não é um tempo exato</p>
+                            <p class="text-xs text-gray-500 italic">*Tempo médio, não é um tempo exato!</p>
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">
-                            <i class="fas fa-user-tie mr-2 text-purple-600"></i>Nome do locutor
+                            <i class="fas fa-user-tie mr-2 text-purple-600"></i>Nome do Locutor
                         </label>
                         <input type="text" id="announcerName" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Ex: Carlos Alberto">
                     </div>
@@ -215,5 +222,6 @@
 </body>
 
 </html>
+
 
 
