@@ -60,7 +60,7 @@ sendWhatsAppBtn.addEventListener('click', function(e) {
     
 	const message = `*NOVA AGENDA & ORÇAMENTOS*\n\n` +
 		`*Empresa:* ${formData.companyName}\n` +
-		`*Cliente:* ${formData.clientName}\n` +
+		`*Solicitante:* ${formData.clientName}\n` +
 		`*WhatsApp:* ${formData.clientWhatsApp}\n` +
 		`*Tema:* ${formData.commercialTheme}\n` +
 		`*Modelo:* ${formData.commercialModel}\n` +
@@ -69,7 +69,7 @@ sendWhatsAppBtn.addEventListener('click', function(e) {
 		`*Cores:* ${formData.projectColors}\n\n` +
 		`*Texto do Locutor:* ${formData.announcerText}\n\n` +
 		`*Locutor:* ${formData.announcerName}\n\n` +
-		`*Observação:* Te enviaremos a data de entrega e valores via WhatsApp`;
+		`*Observação:* Te enviaremos o prazo de entrega e valor via WhatsApp`;
     
 	const phoneNumber = '5562991620784';
 	const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -127,3 +127,4 @@ if (eventStartInput && eventEndInput) {
 		}
 	});
 }
+
